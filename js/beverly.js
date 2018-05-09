@@ -4,9 +4,13 @@ $(function () {
 
 $(function scrollDetection () {
   // 1. wrap the window scroll event handler in jquery dom ready function
+  // $( document ).ready(function() {});
+  // Shorthand: $(function() {});
+  // if you've placed all your scripts right before the </body> closing tag, $(document).ready is not necessary? 
 
   // 2. reuse jquery element selector, this function will be called quite often,
-  //    so the performance improvement may be significant
+  //    so the performance improvement may be significant (避免一直做select)
+  // put a dollar sign before variable name is to indicate it's a jquery powered dom el
   var $document = $(document);
   var $product = $('.product');
   var $space = $('.space');
@@ -120,28 +124,6 @@ $(".dot").click(function() {
   console.log(k);
 });
 
-function spaceClose(){
-  $('.status').attr('data-status', 'close');
-  $('.status_text').text('View Detail');
-  $(".space_overall").removeClass("active");
-  $(".dot").removeClass("active");
-  $('.dot').css('opacity', '0');
-  $('.space_left').removeClass('active');
-  $('.space_pic').removeClass('active');
-  $('.dot').removeClass('active');
-  $('.status_line').removeClass('active');
-  $(".space_fur").removeClass("active");
-}
-
-function spaceOpen(){
-  $('.status').attr('data-status', 'open');
-  $('.space_left').addClass('active');
-  $('.space_pic').addClass('active');
-  $('.status_line').addClass('active');
-  $('.dot').css('opacity', '1');
-  $('.status_text').text('Close');
-  $(".space_fur").addClass("active");
-
   // since we are using jquery, we can replace following code
   /*
   var furCount = $(".dot").length;
@@ -163,6 +145,28 @@ function spaceOpen(){
   } else {
     $(".space_overall").removeClass("active");
   }
+
+function spaceClose(){
+  $('.status').attr('data-status', 'close');
+  $('.status_text').text('View Detail');
+  $(".space_overall").removeClass("active");
+  $(".dot").removeClass("active");
+  $('.dot').css('opacity', '0');
+  $('.space_left').removeClass('active');
+  $('.space_pic').removeClass('active');
+  $('.dot').removeClass('active');
+  $('.status_line').removeClass('active');
+  $(".space_fur").removeClass("active");
+}
+
+function spaceOpen(){
+  $('.status').attr('data-status', 'open');
+  $('.space_left').addClass('active');
+  $('.space_pic').addClass('active');
+  $('.status_line').addClass('active');
+  $('.dot').css('opacity', '1');
+  $('.status_text').text('Close');
+  $(".space_fur").addClass("active");
 }
 
 
@@ -225,7 +229,8 @@ $(function initializeImageSlider() { // <-- and it's even better if we give it a
     // notice that we used data-room-type in html but using roomType in js to fetch it
     // to do it without jquery, just for you reference, will be
     // var roomType = this.dataset.roomType; <- not 100% sure if it works or not though
-    var roomType = $(this).text();
+    // var roomType = $(this).text();
+    var roomType = this.dataset.roomType;
 
     $(".ins_right .slide").empty();
     $slide.css("left", 0);
@@ -234,10 +239,9 @@ $(function initializeImageSlider() { // <-- and it's even better if we give it a
     // ============= removing switch case begin ====================
     // not saying switch case is bad, just showing a different approach
     // if we are not using a switch case, what can we do?
-    const roomTypeConfigs = {
-      living_room: {
-        images: ["living01.jpg", "living02.jpg", "living03.jpg", "living04.jpg", "living05.jpg", "living06.jpg", "living07.jpg", "living08.jpg"],
-        content: `
+    const roomTypeConfigs = { 
+      living_room: { 
+        images: ["living01.jpg", "living02.jpg", "living03.jpg", "living04.jpg", "living05.jpg", "living06.jpg", "living07.jpg", "living08.jpg"], content: `
           <div class="title title2 transition">
             <p>Living Room</p>
             <p class="pic_num">x/y</p>
@@ -246,13 +250,30 @@ $(function initializeImageSlider() { // <-- and it's even better if we give it a
             <p>Now for manners use has company believe parlors. Least nor party who wrote while did. Excuse formed as is agreed admire so on result parish. Put use set uncommonly announcing and travelling. Allowance sweetness direction to as necessary. Excellent you did therefore perfectly supposing described.</p>
             <p class="hide"> Silent sir say desire fat him letter. Whatever settling goodness too and honoured she building answered her. Strongly thoughts remember mr to do consider debating. Spirits musical behaved on we he farther letters. </p>
           </div>
+        ` }, 
+      bedroom: { 
+        images: ["bedroom01.jpg", "bedroom02.jpg", "bedroom03.jpg", "bedroom04.jpg", "bedroom05.jpg", "bedroom06.jpg"], 
+        content: `
+        <div class="title title2 transition"><p>Bedroom</p><p class="pic_num">x/y</p></div>
+        <div class="content transition"><p>Good draw knew bred ham busy his hour. An fail up so shot leaf wise in. Minuter highest his arrived for put and. Hopes lived by rooms oh in no death house. Contented direction september but end led excellent ourselves may. Ferrars few arrival his offered not charmed you. Offered anxious respect or he. </p> <p class="hide"> Up maids me an ample stood given. Certainty say suffering his him collected intention promotion. Hill sold ham men made lose case. Views abode law heard jokes too. Was are delightful solicitude discovered collecting man day. Day his put off unaffected literature partiality inhabiting. </p> </div>
+        ` 
+      },
+      kitchen_and_dining_room: {
+        images: ["kitchen01.jpg", "kitchen02.jpg", "kitchen03.jpg", "kitchen04.jpg", "kitchen05.jpg", "kitchen06.jpg", "kitchen07.jpg"],
+        content: `
+        <div class="title title2 transition"><p>Kitchen and Dining Room</p><p class="pic_num">x/y</p></div>')
+        <div class="content transition"><p>Kindness to he horrible reserved ye. Increasing it unpleasant no of contrasted no continuing. Nothing colonel my no removed in weather. It dissimilar in up devonshire inhabiting</p> <p class="hide"> An country demesne message it. Bachelor domestic extended doubtful as concerns at. Morning prudent removal an letters by. On could my in order never it. Or excited certain sixteen it to parties colonel. Depending conveying direction has led immediate. Law gate her well bed life feet seen rent. On nature or no except it sussex.</p> </div>
+       `
+      } ,
+      working_space: {
+        images: ["work01.jpg", "work02.jpg", "work03.jpg", "work04.jpg", "work05.jpg", "work06.jpg", "work07.jpg"],
+        content: `
+        <div class="title title2 transition"><p>Working Space</p><p class="pic_num">x/y</p></div>
+        <div class="content transition"><p>Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty for remove plenty regard you summer though. He preference connection astonished on of ye. Partiality on or continuing in particular principles as. Do believing oh disposing to supported allowance we. </p> <p class="hide"> As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built gay party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</p> </div>
         `
-      },
-      bedroom: {
-        // configs just as the same as living_room
-      },
-      // the same goes for other room types
+      }
     };
+      // the same goes for other room types
 
     const roomTypeConfig = roomTypeConfigs[roomType];
     insImg = roomTypeConfig.images;
