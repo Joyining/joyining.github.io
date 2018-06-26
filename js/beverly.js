@@ -167,6 +167,7 @@ function spaceOpen(){
   $('.dot').css('opacity', '1');
   $('.status_text').text('Close');
   $(".space_fur").addClass("active");
+  $(".space_overall").addClass("active");
 }
 
 
@@ -261,7 +262,7 @@ $(function initializeImageSlider() { // <-- and it's even better if we give it a
       kitchen_and_dining_room: {
         images: ["kitchen01.jpg", "kitchen02.jpg", "kitchen03.jpg", "kitchen04.jpg", "kitchen05.jpg", "kitchen06.jpg", "kitchen07.jpg"],
         content: `
-        <div class="title title2 transition"><p>Kitchen and Dining Room</p><p class="pic_num">x/y</p></div>')
+        <div class="title title2 transition"><p>Kitchen and Dining Room</p><p class="pic_num">x/y</p></div>
         <div class="content transition"><p>Kindness to he horrible reserved ye. Increasing it unpleasant no of contrasted no continuing. Nothing colonel my no removed in weather. It dissimilar in up devonshire inhabiting</p> <p class="hide"> An country demesne message it. Bachelor domestic extended doubtful as concerns at. Morning prudent removal an letters by. On could my in order never it. Or excited certain sixteen it to parties colonel. Depending conveying direction has led immediate. Law gate her well bed life feet seen rent. On nature or no except it sussex.</p> </div>
        `
       } ,
