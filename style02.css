@@ -545,10 +545,10 @@ a:link{
         }
     }
         .about figure{
-            background-attachment: fixed;
+            /* background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: cover; */
             position: absolute;
             /* Full height */
             height: 100%; 
@@ -562,58 +562,77 @@ a:link{
 
         .about figure.left01 {
             /* The image used */
-            background-attachment: fixed;
+            /* background-attachment: fixed;
             background-position: center;
-            background-size: cover;
-            background: url('images/living04.jpg') no-repeat;
+            background-size: cover; */
+            /* background: url(images/living04.jpg) no-repeat; */
+            /* background-image: url(images/living04.jpg); */
+            background-image: url(images/living04.jpg);
             width: 100%;
+            /* background-attachment: fixed; */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             /* Create the parallax scrolling effect */
             left: 0;
             /* position: fixed; */
+            position: static;
         }
         .about figure.right01{
             width: 50%;
             right: 0;
             background-color:  rgb(231, 229, 224);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .about figure.left02{
             width: 50%;
             left: 0;
-            background-attachment: fixed;
+            /* background-attachment: fixed; */
+            background-image: url(images/living04.jpg);
             background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
-            background: url('images/living04.jpg') no-repeat;
             opacity: .3;
         }
         .about figure.right02{
             width: 50%;
             right: 0;
-            background-attachment: fixed;
+            /* background-attachment: fixed; */
+            background-image: url(images/team01.jpg);
             background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
-            background: url('images/team01.jpg') no-repeat;
         }
         .about figure.left03{
             width: 50%;
             left: 0;
             background-color:  rgb(231, 229, 224);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .about figure.right03{
             width: 100%;
             right: 0;
-            background-attachment: fixed;
+            /* background-attachment: fixed; */
+            background-image: url(images/team01.jpg);
             background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
-            background: url('images/team01.jpg') no-repeat;
             opacity: .3;
         }
         .about figure.right04{
             width: 100%;
             right: 0;
-            background-attachment: fixed;
+            /* background-attachment: fixed; */
+            background-image: url(images/team01.jpg);
             background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
-            background: url('images/team01.jpg') no-repeat;
         }
         .about_title, .about_content{
             margin: 20px;
